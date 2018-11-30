@@ -125,9 +125,9 @@ actual Emacs buffer of the module being loaded."
                 process
                 "Failed, modules loaded: \\(.+\\)\\.$")
                nil)
-	      ((haskell-process-consume
+              ((haskell-process-consume
                 process
-                "Failed, no modules loaded\\.$") ;; for ghc 8.4
+                "Failed, \\(?:[a-z]+\\) modules? loaded\\.$") ;; for ghc 8.4
                nil)
               (t
                (error (message "Unexpected response from haskell process.")))))
