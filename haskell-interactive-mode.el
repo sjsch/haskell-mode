@@ -1035,7 +1035,8 @@ If there is one, pop that up in a buffer, similar to `debug-on-error'."
     (cond
      ((and (not (haskell-interactive-mode-line-is-query (elt state 2)))
            (or (string-match "No instance for (?Show[ \n]" response)
-               (string-match "Ambiguous type variable " response)))
+               (string-match "Ambiguous type variable " response)
+               (string-match "Non type-variable argument " response)))
       (haskell-process-reset (haskell-interactive-process))
       (let ((resp (haskell-process-queue-sync-request
                    (haskell-interactive-process)
